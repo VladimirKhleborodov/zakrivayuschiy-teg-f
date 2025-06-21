@@ -1,1 +1,68 @@
-/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  /*pallete*/
+
+  --white: #fff;
+  --black: #000;
+  --red: #f00;
+  --grey: #d3d3d3;
+  --grey-2: #e7e7e7;
+  --black-2: #1a1a1a;
+
+  /*gradients*/
+
+  --gradient: repeating-linear-gradient(
+    90deg,
+    var(--grey) 0 2px,
+    transparent 2px 4px
+  );
+  --gradient-2: repeating-linear-gradient(
+    180deg,
+    var(--grey) 0 2px,
+    transparent 2px 4px
+  );
+  --gradient-3: linear-gradient(180deg, var(--grey-2) 0.01%, var(--black-2));
+
+  /*page colors*/
+
+  --bg-color: var(--white);
+  --bg-gradient: var(--gradient);
+  --text-color: var(--black);
+  --accent-color: var(--black);
+  --button-text-color: var(--white);
+
+  --text-stroke-color: var(--white);
+  --dialog-backdrop-color: rgb(0 0 0 / 0.75);
+
+  /*images*/
+
+  --bg-image: var(--gradient), var(--gradient-2), var(--gradient-3);
+
+  /*typography*/
+
+  --font-primary: Inter-Variable;
+  --accent-font: "PressStart2P";
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --body-font-size: 1.125rem;
+  --text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+
+  /*layout*/
+  --content-width: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
+  --header-padding: clamp(7.5rem, 6.9231rem + 2.4615vw, 8rem) 0;
+  --header-title-font-size: clamp(3.0625rem, 1.9087rem + 4.9231vw, 4.0625rem);
+  --header-heading-font-size: clamp(0.875rem, 0.226rem + 2.7692vw, 1.4375rem);
+  --border: 2px solid var(--black);
+
+  /*svg heart-in-paths*/
+  --contour-color-primary: var(--black);
+  --contour-color-secondary: var(--red);
+  --main-body-color: var(--white);
+  --core-color: var(--white);
+  --sparks-fill-color: var(--red);
+}
+
+@media (width <= 375px) {
+  :root {
+    --content-width: 100%;
+  }
+}

@@ -1,15 +1,39 @@
-/* В этом файле уже написаны некоторые базовые стили, которые сбрасывают или преобразуют дефольное браузерное поведение.
-Здесь же лежит утилитарный класс visually-hidden на случай, если нужно скрыть какой-то элемент, но оставить доступным для скринридера.
-Вы можете изменять этот файл или дополнять. Но скорее всего, вам это не потребуется. */
-
 *,
 *::after,
 *::before {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+html,
 body {
-  margin: 0;
+  min-block-size: 100dvb;
+}
+
+body {
+  font-family: var(--accent-font), sans-serif;
+  font-size: var(--body-font-size);
+  min-inline-size: 375px;
+  max-inline-size: 1440px;
+  margin-inline: auto;
+  margin-block: 0;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+@supports (font-variation-settings: normal) {
+  .page {
+    font-family: var(--font-primary), sans-serif;
+    font-variation-settings: "wght" var(--font-weight-regular, 400);
+  }
 }
 
 h1,
@@ -26,20 +50,41 @@ li {
   padding: 0;
 }
 
-a {
-  color: inherit;
+h2 {
+  font-size: inherit;
 }
 
-button,
-input {
-  color: currentColor;
-  font-family: inherit;
-  font-size: inherit;
+img {
+  inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 ul,
 ol {
   list-style: none;
+}
+
+button {
+  appearance: none;
+  margin-inline: 0;
+  margin-block: 0;
+  padding-inline: 0;
+  padding-block: 0;
+  font: inherit;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: currentColor;
+  background-color: transparent;
+}
+
+button:focus {
+  outline: none;
+}
+
+dialog::backdrop {
+  background-color: var(--dialog-backdrop-color);
 }
 
 .visually-hidden {
