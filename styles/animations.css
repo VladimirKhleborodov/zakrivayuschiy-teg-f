@@ -1,79 +1,74 @@
-/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
+/*По умолчанию*/
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-*/
-
-.core {
-  transition: fill 0.3s;
-  transition-delay: 0.03s;
+.contour {
+  fill: var(--contour-color-default);
+  transition: fill 0.1s linear;
 }
 
 .main-body {
-  transition: fill 0.3s;
+  fill: var(--fill-color-default);
+  transition: fill 0.3s linear;
 }
 
-.is-liked .core {
-  animation: coloring 0.3s linear;
-  animation-fill-mode: forwards;
+.core {
+  fill: var(--fill-color-default);
+  transition: fill 0.3s 0.03s linear;
 }
 
-.is-liked .main-body {
-  animation: coloring 0.3s 0.05s linear;
-  animation-fill-mode: forwards;
+.sparks {
+  fill: var(--fill-color);
+  opacity: 0;
 }
 
-.is-liked .contour {
-  animation: coloring 0.3s 0.06s linear;
-  animation-fill-mode: forwards;
+/*При наведении*/
+
+.card__icon-button:hover .core {
+  fill: var(--contour-color-default);
+  transition: fill 0.3s linear;
 }
 
-.is-liked .heart {
+.card__icon-button:hover .main-body {
+  fill: var(--contour-color-default);
+  transition: fill 0.3s 0.05s linear;
+}
+
+/*При активации */
+
+.card__icon-button:active .core {
+  fill: var(--fill-color);
+  transition: fill 0.3s linear;
+}
+
+.card__icon-button:active .main-body {
+  fill: var(--fill-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+/*При выборе(.is-liked)*/
+
+.like-icon.is-liked .core {
+  fill: var(--fill-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--fill-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--fill-color);
+  transition: fill 0.3s 0.06s linear;
+}
+
+.like-icon.is-liked .heart {
   animation: heart-scaling 0.3s 0.1s ease-in;
   animation-iteration-count: 1;
 }
 
-.is-liked .sparks {
+.like-icon.is-liked .sparks {
   animation: sparks-opacity 0.3s 0.3s ease-in;
   animation-iteration-count: 1;
-}
-
-.card__icon-button:hover .core {
-  fill: var(--contour-color-primary);
-  transition: fill 0.3s;
-}
-
-.card__icon-button:hover .main-body {
-  fill: var(--contour-color-primary);
-  transition: fill 0.3s;
-  transition-delay: 0.05s;
-}
-
-.card__icon-button:active .is-liked.core {
-  fill: var(--contour-color-secondary);
-  transition: fill 0.3s;
-}
-
-.card__icon-button:active .is-liked.main-body {
-  fill: var(--contour-color-secondary);
-  transition: fill 0.3s;
-  transition-delay: 0.05s;
-}
-
-@keyframes coloring {
-  0% {
-    fill: initial;
-  }
-
-  100% {
-    fill: var(--contour-color-secondary);
-  }
 }
 
 @keyframes heart-scaling {

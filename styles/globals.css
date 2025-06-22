@@ -14,7 +14,7 @@ body {
 }
 
 body {
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font), fantasy;
   font-size: var(--body-font-size);
   min-inline-size: 375px;
   max-inline-size: 1440px;
@@ -56,8 +56,6 @@ h2 {
 
 img {
   inline-size: 100%;
-  object-fit: cover;
-  object-position: center;
 }
 
 ul,

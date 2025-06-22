@@ -9,7 +9,7 @@
 }
 
 .header-typography {
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font), fantasy;
   line-height: 1;
   letter-spacing: 0;
   text-align: left;
@@ -29,6 +29,14 @@
 
 .header__heading {
   font-size: var(--header-heading-font-size);
+}
+
+.main {
+  padding-block-end: 103px;
+}
+
+.content {
+  margin-block-end: 50px;
 }
 
 .content__list-item:not(:last-of-type) {
@@ -52,6 +60,8 @@
 .card__image {
   display: block;
   aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
 }
 
 .filter-contrast {
@@ -99,10 +109,14 @@
   text-shadow: var(--text-shadow);
 }
 
-@supports (text-stroke: 1px var(--text-stroke-color)) {
-  span {
+@supports (
+  (text-stroke: 1px var(--text-stroke-color)) or
+    (-webkit-text-stroke: 1px var(--text-stroke-color))
+) {
+  .card__lable {
     -webkit-text-stroke: 1px var(--text-stroke-color);
     text-stroke: 1px var(--text-stroke-color);
+    text-shadow: none;
   }
 }
 
@@ -125,22 +139,23 @@
 
 .card__buttons-group {
   display: flex;
-  gap: 5px;
+  gap: 4px;
   justify-content: end;
   align-items: flex-start;
 }
 
 .button {
   position: relative;
+  transition: box-shadow 0.3s ease;
+  
 }
 
 .button:focus {
   box-shadow: 2px 2px 0 var(--accent-color);
-  transition: box-shadow 0.5s ease-in-out;
 }
 
 .button::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   transform-origin: center left;
@@ -173,6 +188,9 @@
 
 .button_heart {
   block-size: 2.25rem;
+  display: grid;
+  justify-items: center;
+  align-items: center;
   border-color: transparent;
   transition: border-color 0.3s ease;
 }
@@ -191,13 +209,12 @@
 }
 
 .accent-text {
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font), fantasy;
   font-size: 0.875rem;
 }
 
 .heart-icon {
-  inline-size: 2.436rem;
-  block-size: 2.25rem;
+  inline-size: 2.4375rem;
 }
 
 .sparks {
@@ -251,12 +268,12 @@
     margin-block-end: 25px;
   }
 
-    .button_save {
+  .button_save {
     padding: 16px 19.5px;
     flex-direction: column;
   }
 
-    .floppy-icon_button {
+  .floppy-icon_button {
     inline-size: 1.75rem;
     block-size: 1.75rem;
     margin-block-end: 2px;

@@ -5,22 +5,22 @@
   --black: #000;
   --red: #f00;
   --grey: #d3d3d3;
-  --grey-2: #e7e7e7;
-  --black-2: #1a1a1a;
+  --grey-base-layer: #e7e7e7;
+  --black-base-layer: #1a1a1a;
 
   /*gradients*/
 
-  --gradient: repeating-linear-gradient(
+  --gradient-primary-layer: repeating-linear-gradient(
     90deg,
     var(--grey) 0 2px,
     transparent 2px 4px
   );
-  --gradient-2: repeating-linear-gradient(
+  --gradient-secondary-layer: repeating-linear-gradient(
     180deg,
     var(--grey) 0 2px,
     transparent 2px 4px
   );
-  --gradient-3: linear-gradient(180deg, var(--grey-2) 0.01%, var(--black-2));
+  --gradient-base-layer: linear-gradient(180deg, var(--grey-base-layer) 0.01%, var(--black-base-layer));
 
   /*page colors*/
 
@@ -35,7 +35,7 @@
 
   /*images*/
 
-  --bg-image: var(--gradient), var(--gradient-2), var(--gradient-3);
+  --bg-image: var(--gradient-primary-layer), var(--gradient-secondary-layer), var(--gradient-base-layer);
 
   /*typography*/
 
@@ -54,11 +54,9 @@
   --border: 2px solid var(--black);
 
   /*svg heart-in-paths*/
-  --contour-color-primary: var(--black);
-  --contour-color-secondary: var(--red);
-  --main-body-color: var(--white);
-  --core-color: var(--white);
-  --sparks-fill-color: var(--red);
+  --contour-color-default: var(--black);
+  --fill-color-default: var(--white);
+  --fill-color: var(--red);
 }
 
 @media (width <= 375px) {
